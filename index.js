@@ -95,7 +95,7 @@ const runAction = () => {
 	setEnv("ADBLOCK", true);
 
 	log(`Installing dependencies using Yarn…`);
-	run("yarn", pkgRoot);
+	run("yarn install --network-timeout 1000000", pkgRoot);
 
 	log(`Building${release ? " and releasing" : ""} the Electron app…`);
 	run(`yarn run ${buildScriptName} --${platform} ${release ? "--publish always" : ""} ${args}`, pkgRoot);
